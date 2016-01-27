@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+<body>
+<script type="text/javascript">
+    // function (prototype)
+    function user(first_name, last_name) {
+        this.first_name = first_name;
+        this.last_name = last_name;
+    }
+
+    // create object
+    var person = new user("Biong", "Bagito");
+    console.log("1st name: " + person.first_name);
+
+    // add new properties
+    person.nationality = "Fil";
+    console.log("Nationality: " + person.nationality);
+
+    person.full_name = function () {
+        return this.first_name + " " + this.last_name;
+    };
+    console.log(person.full_name());
+
+    user.prototype.age = 21;
+    console.log(person.age);
+</script>
+</body>
+</html>

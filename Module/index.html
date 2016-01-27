@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Module Design Pattern</title>
+</head>
+<body>
+<script type="text/javascript">
+    // 1.
+    (function (window, undefined) {
+        var private = {
+            age: 8
+        };
+
+        function ModuleName() {
+            this.setName = null;
+
+            this.getName = function () {
+                return this.setName;
+            };
+        }
+
+        window.ModuleName = ModuleName;
+    })(window);
+
+    // usage
+    var moduleName = new ModuleName();
+    moduleName.setName = "User";
+    console.log(moduleName.getName());
+
+    // 2.
+    var anotherModuleName = (function () {
+        var privateMethod = function () {
+            console.log("Private Method.");
+        };
+
+        return {
+            publicMethod: function () {
+                console.log("Calling this method.");
+            }
+        };
+    })();
+
+    anotherModuleName.publicMethod()
+</script>
+</body>
+</html>
