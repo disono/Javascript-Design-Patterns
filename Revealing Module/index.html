@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Revealing Module Pattern</title>
+</head>
+<body>
+<script type="text/javascript">
+    var ModuleName = (function (window, undefined) {
+        var full_name = null;
+
+        function setName(first_name, last_name) {
+            full_name = first_name + " " + last_name;
+        }
+
+        function getName() {
+            return full_name;
+        }
+
+        return {
+            set: setName,
+            get: getName
+        };
+    })(window);
+
+    ModuleName.set("User", "One");
+    console.log(ModuleName.get());
+</script>
+</body>
+</html>
